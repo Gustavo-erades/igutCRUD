@@ -1,4 +1,5 @@
 <h1 class="display-6 mt-3">Convenios já cadastrados:</h1>
+<hr>
 <table class="table table-hover">
     <tr>
         <th>
@@ -28,7 +29,17 @@
     endforeach;
     ?>
 </table>
-<hr>
+<!-- paginação -->
+<?php if($totalPages>0): ?>
+<div>
+    <span class="d-flex flex-row-reverse">
+        página <?= $currentPage ?> de <?= $totalPages ?> páginas
+    </span>
+    <nav aria-label="Page navigation" data-id="convenios" id="navPaginacao">
+        <?=$this->element('paginacao')?>
+    </nav>
+</div>
+<?php endif; ?>
 <h1 class="display-6 mt-3">Cadastrar novo convênio</h1>
 <form class="form-group mt-2 mb-5">
     <div class="input-group mb-3">

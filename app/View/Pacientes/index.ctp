@@ -1,4 +1,5 @@
 <h1 class="display-6 mt-3">Pacientes cadastrados</h1>
+<hr>
 <table class="table table-hover">
     <tr>
         <th>Id</th>
@@ -31,6 +32,7 @@
     <?php endforeach; ?>
 </table>
 <!-- Paginação -->
+<?php if($totalPages>0): ?>
 <div>
     <span class="d-flex flex-row-reverse">
         página <?= $currentPage ?> de <?= $totalPages ?> páginas
@@ -39,6 +41,7 @@
         <?=$this->element('paginacao')?>
     </nav>
 </div>
+<?php endif; ?>
 <button class="btn btn-info text-dark mb-4" onclick="getNewPaciente()" type="button">
     Novo paciente
 </button>

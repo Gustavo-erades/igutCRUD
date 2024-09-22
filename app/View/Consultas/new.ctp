@@ -1,4 +1,5 @@
 <h1 class="display-6 mt-3">Agendar consulta</h1>
+<hr>
 <form class="form-group mt-2 mb-5">
     <div class="form-floating mb-3">
         <input required type="date" class="form-control" id="consultaDia" placeholder="">

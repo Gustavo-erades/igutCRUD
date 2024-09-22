@@ -1,6 +1,7 @@
 <h1 class="display-6 mt-3">
     Médicos disponíveis
 </h1>
+<hr>
 <table class="table table-hover">
     <tr>
         <th>Id</th>
@@ -42,6 +43,7 @@
 </table>
 </table>
 <!-- Paginação -->
+<?php if($totalPages>0): ?>
 <div>
     <span class="d-flex flex-row-reverse">
         página <?= $currentPage ?> de <?= $totalPages ?> páginas
@@ -50,6 +52,7 @@
         <?=$this->element('paginacao')?>
     </nav>
 </div>
+<?php endif; ?>
 <button class="btn btn-info text-dark mb-4" onclick="getNewMedico()" type="button">
     Novo médico
 </button>

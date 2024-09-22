@@ -3,18 +3,31 @@ class AtendimentosController extends AppController
 {
     public function index()
     {
-        $this->layout='ajax';
-        $this->set('atendimentos', $this->Atendimento->find('all'));
+        $this->layout = 'ajax';
+        /*$this->set('atendimentos', $this->Atendimento->find('all'));*/
+
+        $this->paginate = array(
+            'limit' => 5,
+            'order' => array('Atendimento.nome' => 'asc')
+        );
+
+        $this->layout = 'ajax';
+
+        $atendimentos = $this->paginate('Atendimento');
+        $total = $this->Atendimento->find('count');
+        $this->set(compact('atendimentos', 'total'));
+
+        $this->set('currentPage', $this->request->params['named']['page'] ?? 1);
+        $this->set('totalPages', ceil($total / $this->paginate['limit']));
+
         if ($this->request->is('post')) {
-            if ($this->Atendimento->save($this->request->data)) {
-                $this->Flash->success('Atendimento cadastrado com sucesso!');
-                $this->redirect(array('action' => 'index'));
-            }
+            $this->Atendimento->save($this->request->data);
         }
     }
 
-    public function edit($id = null) {
-        $this->layout='ajax';
+    public function edit($id = null)
+    {
+        $this->layout = 'ajax';
         $atendimento = $this->Atendimento->findById($id);
         if ($this->request->is(['post', 'put'])) {
             $this->Atendimento->id = $id;
@@ -22,10 +35,10 @@ class AtendimentosController extends AppController
         }
     }
 
-    public function del($id){
-        $this->layout='ajax';
+    public function del($id)
+    {
+        $this->layout = 'ajax';
         $this->Atendimento->delete($id);
     }
-    public $components=array('RequestHandler');
+    public $components = array('RequestHandler');
 }
-?>

@@ -45,6 +45,7 @@
         </tr>
     <?php endforeach; ?>
 </table>
+<?php if($totalPages>0): ?>
 <div>
     <span class="d-flex flex-row-reverse">
         página <?= $currentPage ?> de <?= $totalPages ?> páginas
@@ -53,6 +54,7 @@
         <?=$this->element('paginacao')?>
     </nav>
 </div>
+<?php endif; ?>
 <button type="button" class="btn btn-info text-dark mb-4" onclick="getNewConsulta()">
     Nova Consulta
 </button>
