@@ -200,5 +200,23 @@ $('#getConvenios').on('click', getConvenios);
 $('#getHome').on('click', getConsultas);
 /* acontece assim que a página é completamente carregada */
 $(document).ready(() => {
+
+    $('#tableConsultas').DataTable({
+        "processing": true,
+        "serverSide": true,
+        "ajax": {
+            "url": "<?= $this->Html->url(['action' => 'index']); ?>",
+            "type": "GET"
+        },
+        "columns": [
+            { "data": "id" },
+            { "data": "dia" },
+            { "data": "hora" },
+            { "data": "medico_id" },
+            { "data": "atendimento_id" },
+            { "data": "paciente_id" },
+        ]
+    });
+    
     getConsultas();
 })

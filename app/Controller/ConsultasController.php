@@ -3,8 +3,21 @@ class ConsultasController extends AppController
 {
     public function index()
     {
+        $this->paginate = array(
+            'limit' => 1,
+            'order' => array('Consulta.dia' => 'asc')
+        );
+
         $this->layout = 'ajax';
-        $this->set('consultas', $this->Consulta->find('all'));
+       /* $this->set('consultas', $this->Consulta->find('all'));*/
+    
+       $consultas=$this->paginate('Consulta');
+       $total=$this->Consulta->find('count');
+       $this->set(compact('consultas','total'));
+
+       $this->set('currentPage',$this->request->params['named']['page']??1);
+       $this->set('totalPages',ceil($total/$this->paginate['limit']));
+
     }
     public function new()
     {
