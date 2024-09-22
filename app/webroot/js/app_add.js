@@ -39,7 +39,7 @@ function addPaciente(){
     });
 }
 function addAtendimento(){
-    var atendimento = $('#atendimetoNome').val();
+    var atendimento = $('#atendimentoNome').val();
     var data = {
         nome: atendimento
     };

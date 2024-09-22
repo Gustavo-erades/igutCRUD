@@ -21,5 +21,5 @@
     <label for="pacienteNascimento">Nascimento</label>
   </div>
 
-  <button class="btn btn-info" type="button" onclick="editPaciente(<?=$pacientes['Paciente']['id']?>)">Cadastrar paciente</button>
+  <button class="btn btn-info" type="button" onclick="editPaciente(<?=$pacientes['Paciente']['id']?>)">Salvar Alterações</button>
 </div>

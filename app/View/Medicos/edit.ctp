@@ -15,5 +15,5 @@
         <input required type="text" class="form-control" id="medicoEspecialidade" placeholder="" value="<?= $medicos["Medico"]['especialidade'] ?>">
         <label for="medicoEspecialidade">Especialidade</label>
     </div>
-    <button class="btn btn-info" type="button" onclick="editMedico(<?=$medicos['Medico']['id']?>)">atualizar médico</button>
+    <button class="btn btn-info" type="button" onclick="editMedico(<?=$medicos['Medico']['id']?>)">Salvar Alterações</button>
 </form>

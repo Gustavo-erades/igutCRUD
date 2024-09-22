@@ -1,7 +1,7 @@
 <?php
 class AtendimentosController extends AppController
 {
-    function index()
+    public function index()
     {
         $this->layout='ajax';
         $this->set('atendimentos', $this->Atendimento->find('all'));
@@ -22,7 +22,7 @@ class AtendimentosController extends AppController
         }
     }
 
-    function delete($id){
+    public function delete($id){
         $this->layout='ajax';
         if(!$this->request->is('post')){
             throw new MethodNotAllowedException();

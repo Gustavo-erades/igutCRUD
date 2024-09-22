@@ -176,6 +176,9 @@ function getEditPaciente(id){
 function getEditAtendimento(id){
     new bootstrap.Modal("#modalEdit-"+id).show();
 }
+function getEditConvenio(id){
+    new bootstrap.Modal("#modalEdit-"+id).show();
+}
 /* ações ao clicar (todos) */
 $('#getMedicos').on('click', getMedicos);
 $('#getPacientes').on('click', getPacientes);

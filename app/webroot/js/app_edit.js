@@ -39,33 +39,36 @@ function editPaciente(id){
     })
 }
 function editAtendimento(id){
-    var atendimento = $('#atendimetoNome').val();
+    var atendimento = $('#atendimentoNome-'+id).val();
+    console.log(atendimento)
     var data = {
         nome: atendimento,
-        id:id
     };
+    var modal=new bootstrap.Modal("#modalEdit-"+id)
     $.ajax({
         type: 'PUT',
         url: 'atendimentos/edit/'+id,
         data:data,
         dataType: 'json',
-        success: () => {
+        error: () => {
             getAtendimentos();
         }
     })
 }
 function editConvenio(id){
-    var convenio = $('#convenioNome').val();
+    var convenio = $('#convenioNome-'+id).val();
+    console.log(convenio)
     var data = {
-        nome: convenio
+        nome: convenio,
     };
+    var modal=new bootstrap.Modal("#modalEdit-"+id)
     $.ajax({
         type: 'PUT',
-        url: 'convenio/edit/'+id,
+        url: 'convenios/edit/'+id,
         data:data,
         dataType: 'json',
         error: () => {
-            getConvenio();
+            getConvenios();
         }
     })
 }
