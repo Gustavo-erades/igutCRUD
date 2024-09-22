@@ -2,7 +2,21 @@
     class MedicosController extends AppController{
         public function index() {
             $this->layout="ajax";
-            $this->set('medicos',$this->Medico->find('all'));
+            /*$this->set('medicos',$this->Medico->find('all'));*/
+
+            $this->paginate = array(
+                'limit' => 5,
+                'order' => array('Medico.nome' => 'asc')
+            );
+    
+            $this->layout = 'ajax';
+        
+           $medicos=$this->paginate('Medico');
+           $total=$this->Medico->find('count');
+           $this->set(compact('medicos','total'));
+    
+           $this->set('currentPage',$this->request->params['named']['page']??1);
+           $this->set('totalPages',ceil($total/$this->paginate['limit']));
         }
         public function view($id = null) {
             $this->layout='ajax';

@@ -49,21 +49,8 @@
     <span class="d-flex flex-row-reverse">
         página <?= $currentPage ?> de <?= $totalPages ?> páginas
     </span>
-    <nav aria-label="Page navigation">
-        <ul class="pagination justify-content-center">
-            <li class="page-item">
-                <a class="page-link" href="#" onclick="paginacao('first',1)">Primeiro</a>
-            </li>
-            <li class="page-item">
-                <a class="page-link"  href="#" onclick="paginacao('prev',<?=$currentPage - 1?>)">&laquo;</a>
-            </li>
-            <li class="page-item">
-                <a class="page-link" href="#" onclick="paginacao('next',<?=$currentPage + 1?>)">&raquo;</a>
-            </li>
-            <li class="page-item">
-                <a class="page-link" href="#" onclick="paginacao('last',$totalPages)">Último</a>
-            </li>
-        </ul>
+    <nav aria-label="Page navigation" data-id="consultas" id="navPaginacao">
+        <?=$this->element('paginacao')?>
     </nav>
 </div>
 <button type="button" class="btn btn-info text-dark mb-4" onclick="getNewConsulta()">

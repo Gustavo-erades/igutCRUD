@@ -2,7 +2,22 @@
     class PacientesController extends AppController{
         public function index() {
             $this->layout="ajax";
-            $this->set('pacientes',$this->Paciente->find('all'));
+            /*$this->set('pacientes',$this->Paciente->find('all'));*/
+
+            $this->paginate = array(
+                'limit' => 5,
+                'order' => array('Paciente.nome' => 'asc')
+            );
+    
+            $this->layout = 'ajax';
+        
+           $pacientes=$this->paginate('Paciente');
+           $total=$this->Paciente->find('count');
+           $this->set(compact('pacientes','total'));
+    
+           $this->set('currentPage',$this->request->params['named']['page']??1);
+           $this->set('totalPages',ceil($total/$this->paginate['limit']));
+            
         }
         public function view($id = null) {
             $this->layout='ajax';

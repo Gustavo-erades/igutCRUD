@@ -1,9 +1,10 @@
 function paginacao(acao,page) {
+    var view=$('#navPaginacao').attr('data-id');
     switch (acao) {
         case 'first':
             $.ajax({
                 type: 'GET',
-                url: 'consultas/index/page:'+page,
+                url: view+'/index/page:'+page,
                 dataType: 'html',
                 success: (data) => {
                     $('#mainContent').html(data);
@@ -16,7 +17,7 @@ function paginacao(acao,page) {
         case 'prev':
             $.ajax({
                 type: 'GET',
-                url: 'consultas/index/page:'+page,
+                url: view+'/index/page:'+page,
                 dataType: 'html',
                 success: (data) => {
                     $('#mainContent').html(data);
@@ -29,7 +30,7 @@ function paginacao(acao,page) {
         case 'next':
             $.ajax({
                 type: 'GET',
-                url: 'consultas/index/page:'+page,
+                url: view+'/index/page:'+page,
                 dataType: 'html',
                 success: (data) => {
                     $('#mainContent').html(data);
@@ -42,7 +43,7 @@ function paginacao(acao,page) {
         case 'last':
             $.ajax({
                 type: 'GET',
-                url: 'consultas/index/page:'+page,
+                url: view+'/index/page:'+page,
                 dataType: 'html',
                 success: (data) => {
                     $('#mainContent').html(data);

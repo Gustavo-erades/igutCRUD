@@ -4,7 +4,7 @@ class ConsultasController extends AppController
     public function index()
     {
         $this->paginate = array(
-            'limit' => 1,
+            'limit' => 5,
             'order' => array('Consulta.dia' => 'asc')
         );
 
