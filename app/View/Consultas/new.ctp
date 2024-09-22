@@ -5,29 +5,40 @@
         <label for="consultaDia">Dia</label>
     </div>
     <div class="form-floating mb-3">
-        <input required type="time" class="form-control" id="consultaTime" placeholder="">
-        <label for="consultaTime">Hora</label>
-    </div>
-    <div class="mb-3">
-        <?php
-        echo $this->Form->input('Médico', array(
-            'type' => 'select',
-            'class' => 'form-control',
-            'options' => $medicos
-        ))
-        ?>
+        <input required type="time" class="form-control" id="consultaHora" placeholder="">
+        <label for="consultaHora">Hora</label>
     </div>
     <div class="form-floating mb-3">
-        <input required type="select" class="form-control" id="pacientesNome" placeholder="">
-        <label for="pacientesNome">Paciente</label>
+        <select id="selectMedico" class="form-control">
+            <?php foreach($medicos as $id=>$nome): ?>
+                <option value="<?=$id?>"><?=$nome?></option>
+            <?php endforeach; ?>
+        </select>
+        <label for="selectMedico">Médico</label>
     </div>
     <div class="form-floating mb-3">
-        <input required type="select" class="form-control" id="atendimentosNome" placeholder="">
-        <label for="atendimentosNome">Atendimento</label>
+        <select id="selectPaciente" class="form-control">
+            <?php foreach($pacientes as $id=>$nome): ?>
+                <option value="<?=$id?>"><?=$nome?></option>
+            <?php endforeach; ?>
+        </select>
+        <label for="selectPaciente">Paciente</label>
     </div>
     <div class="form-floating mb-3">
-        <input required type="select" class="form-control" id="conveniosNome" placeholder="">
-        <label for="conveniosNome">Convenio</label>
+        <select id="selectConvenio" class="form-control">
+            <?php foreach($convenios as $id=>$nome): ?>
+                <option value="<?=$id?>"><?=$nome?></option>
+            <?php endforeach; ?>
+        </select>
+        <label for="selectConvenio">Convenio</label>
     </div>
-    <button class="btn btn-info" type="button">Agendar consulta</button>
+    <div class="form-floating mb-3">
+        <select id="selectAtendimento" class="form-control">
+            <?php foreach($atendimentos as $id=>$nome): ?>
+                <option value="<?=$id?>"><?=$nome?></option>
+            <?php endforeach; ?>
+        </select>
+        <label for="selectAtendimento">Atendimento</label>
+    </div>
+    <button class="btn btn-info" type="button" onclick="addConsulta()" >Agendar consulta</button>
 </form>

@@ -10,10 +10,7 @@ class ConsultasController extends AppController
     {
         $this->layout = 'ajax';
         if ($this->request->is('post')) {
-            if ($this->Consulta->save($this->request->data)) {
-                $this->Flash->success('Consulta marcada!');
-                $this->redirect(array('action' => 'index'));
-            }
+            $this->Consulta->save($this->request->data);
         }
         $fields = array('Medico.id', 'Medico.nome');
         $medicos = $this->Consulta->Medico->find('list', compact('fields'));
@@ -31,33 +28,23 @@ class ConsultasController extends AppController
         $convenios = $this->Consulta->Convenio->find('list', compact('fields'));
         $this->set('convenios', $convenios);
     }
-    public function delete($id)
+    public function del($id)
     {
-        if (!$this->request->is('post')) {
-            throw new BadNotAllowedException();
-        }
-        if ($this->Consulta->delete($id)) {
-            $this->Flash->success('Consulta cancelada!');
-            $this->redirect(array('action' => 'index'));
-        }
+        $this->layout = 'ajax';
+        $this->Consulta->delete($id);
     }
     public function edit($id = null)
     {
         $this->layout = "ajax";
-        $this->set('consultas', $this->Consulta->findById($id));
+        $consulta = $this->Consulta->findById($id);
 
-        if (!empty($this->request->data)) {
-            if ($this->request->is('put')) {
-                if ($this->Consulta->save($this->request->data)) {
-                    $this->Flash->success('Consulta reagendada!');
-                    $this->redirect(array('action' => 'index'));
-                }
-            }
-        } else {
-            $fields = array('Consulta.id', 'Consulta.dia', 'Consulta.hora', 'Consulta.medico_id', 'Consulta.paciente_id', 'Consulta.atendimento_id', 'Consulta.convenio_id');
-            $conditions = array('Consulta.id' => $id);
-            $this->request->data = $this->Consulta->find('first', compact('fields', 'conditions'));
+        if ($this->request->is(['post', 'put'])) {
+            $this->Consulta->id = $id;
+            $this->Consulta->save($this->request->data);
+        } else if ($this->request->is('get')) {
+            $this->set('consultas', $this->Consulta->findById($id));
         }
+
         $fields = array('Medico.id', 'Medico.nome');
         $medicos = $this->Consulta->Medico->find('list', compact('fields'));
         $this->set('medicos', $medicos);
@@ -75,4 +62,3 @@ class ConsultasController extends AppController
         $this->set('convenios', $convenios);
     }
 }
-?>

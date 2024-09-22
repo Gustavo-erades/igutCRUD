@@ -68,3 +68,28 @@ function addConvenio(){
         }
     });
 }
+function addConsulta(){
+    var dia = $('#consultaDia').val();
+    var hora = $('#consultaHora').val();
+    var medico = $('#selectMedico').val();
+    var paciente = $('#selectPaciente').val();
+    var atendimento = $('#selectAtendimento').val();
+    var convenio = $('#selectConvenio').val();
+    var data = {
+        dia:dia,
+        hora:hora,
+        medico_id:medico,
+        paciente_id:paciente,
+        atendimento_id:atendimento,
+        convenio_id:convenio
+    };
+    $.ajax({
+        type: 'POST',
+        url: 'consultas/new/',
+        data: data, 
+        dataType: 'json', 
+        error: (response) => {
+            getConsultas();
+        }
+    }); 
+}

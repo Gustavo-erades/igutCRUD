@@ -30,7 +30,16 @@ function delAtendimento(id){
         type:'DELETE',
         url:'atendimentos/del/'+id,
         error: function(){
-            getAtendimentos()
+            getAtendimentos();
+        }
+    })
+}
+function delConsulta(id){
+    $.ajax({
+        type:'DELETE',
+        url:'consultas/del/'+id,
+        error: ()=>{
+            getConsultas();
         }
     })
 }

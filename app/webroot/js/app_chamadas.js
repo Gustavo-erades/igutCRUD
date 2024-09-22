@@ -179,6 +179,19 @@ function getEditAtendimento(id){
 function getEditConvenio(id){
     new bootstrap.Modal("#modalEdit-"+id).show();
 }
+function getEditConsulta(id){
+    $.ajax({
+        type: 'GET',
+        url: 'consultas/edit/'+id,
+        dataType: 'html',
+        success: (data) => {
+            $('#mainContent').html(data);
+        },
+        error: () => {
+            alert('Erro ao carregar cadastro de consulta');
+        }
+    })
+}
 /* ações ao clicar (todos) */
 $('#getMedicos').on('click', getMedicos);
 $('#getPacientes').on('click', getPacientes);

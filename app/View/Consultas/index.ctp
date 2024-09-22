@@ -35,10 +35,10 @@
             </a>
         </td>
         <td>
-            <button class="btn btn-outline-secondary">
+            <button class="btn btn-outline-secondary" type="button" onclick="getEditConsulta(<?=$consulta['Consulta']['id']?>)">
                 <img width="16" height="16" src="https://img.icons8.com/stencil/16/pencil.png" alt="pencil" />
             </button>
-            <button class="btn btn-outline-secondary">
+            <button class="btn btn-outline-secondary" type="button" onclick="delConsulta(<?=$consulta['Consulta']['id']?>)">
                 <img width="16" height="16" src="https://img.icons8.com/stencil/16/trash.png" alt="trash" />
             </button>
         </td>
