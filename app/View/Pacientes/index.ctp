@@ -20,7 +20,7 @@
             <td><?php echo $paciente['Paciente']['telefone']; ?></td>
             <td><?php echo date('d/m/Y',strtotime($paciente['Paciente']['dt_nasc'])); ?></td>
             <td>
-            <button class="btn btn-outline-secondary">
+            <button class="btn btn-outline-secondary" onclick="getEditPaciente(<?=$paciente['Paciente']['id']?>)">
                 <img width="16" height="16" src="https://img.icons8.com/stencil/16/pencil.png" alt="pencil" />
             </button>
             <button class="btn btn-outline-secondary">

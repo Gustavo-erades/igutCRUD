@@ -26,6 +26,17 @@
                 $this->redirect(array('action' => 'index'));
             }
         }
+
+        public function edit($id = null) {
+            $this->layout='ajax';
+            $paciente = $this->Paciente->findById($id);
+            if ($this->request->is(['post', 'put'])) {
+                $this->Paciente->id = $id;
+                $this->Paciente->save($this->request->data);
+            }else if($this->request->is('get')){
+                $this->set('pacientes', $this->Paciente->findById($id));
+            }
+        }
         public $components=array('RequestHandler');
     }
 ?>

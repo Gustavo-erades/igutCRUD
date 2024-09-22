@@ -45,5 +45,6 @@
 	<script src="js/app_chamadas.js"></script>
 	<script src="js/app_exclusao.js"></script>
 	<script src="js/app_add.js"></script>
+	<script src="js/app_edit.js"></script>
 </body>
 </html>

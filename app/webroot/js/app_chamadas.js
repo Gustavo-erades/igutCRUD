@@ -146,6 +146,36 @@ function getNewConsulta(){
         }
     })
 }
+/* página para editar registro */
+function getEditMedico(id){
+    $.ajax({
+        type: 'GET',
+        url: 'medicos/edit/'+id,
+        dataType: 'html',
+        success: (data) => {
+            $('#mainContent').html(data);
+        },
+        error: () => {
+            alert('Erro ao carregar cadastro de médico');
+        }
+    })
+}
+function getEditPaciente(id){
+    $.ajax({
+        type: 'GET',
+        url: 'pacientes/edit/'+id,
+        dataType: 'html',
+        success: (data) => {
+            $('#mainContent').html(data);
+        },
+        error: () => {
+            alert('Erro ao carregar cadastro de médico');
+        }
+    })
+}
+function getEditAtendimento(id){
+    new bootstrap.Modal("#modalEdit-"+id).show();
+}
 /* ações ao clicar (todos) */
 $('#getMedicos').on('click', getMedicos);
 $('#getPacientes').on('click', getPacientes);

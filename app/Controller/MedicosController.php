@@ -8,6 +8,16 @@
             $this->layout='ajax';
             $this->set('medicos', $this->Medico->findById($id));
         }
+        public function edit($id = null) {
+            $this->layout='ajax';
+            $medico = $this->Medico->findById($id);
+            if ($this->request->is(['post', 'put'])) {
+                $this->Medico->id = $id;
+                $this->Medico->save($this->request->data);
+            }else if($this->request->is('get')){
+                $this->set('medicos', $this->Medico->findById($id));
+            }
+        }
         public function new(){
             $this->layout="ajax";
             if ($this->request->is('post')) {
@@ -20,7 +30,7 @@
             if (!$this->request->is('post')) {
                 throw new BadNotAllowedException();
             }
-            if ($this->Consulta->delete($id)) {
+            if ($this->Medico->delete($id)) {
                 $this->redirect(array('action' => 'index'));
             }
         }

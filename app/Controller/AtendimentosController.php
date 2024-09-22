@@ -12,6 +12,16 @@ class AtendimentosController extends AppController
             }
         }
     }
+
+    public function edit($id = null) {
+        $this->layout='ajax';
+        $atendimento = $this->Atendimento->findById($id);
+        if ($this->request->is(['post', 'put'])) {
+            $this->Atendimento->id = $id;
+            $this->Atendimento->save($this->request->data);
+        }
+    }
+
     function delete($id){
         $this->layout='ajax';
         if(!$this->request->is('post')){

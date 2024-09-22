@@ -28,7 +28,7 @@
                 ?>
             </td>
             <td>
-                <button class="btn btn-outline-secondary">
+                <button class="btn btn-outline-secondary" onclick="getEditMedico(<?=$medico['Medico']['id']?>)">
                     <img width="16" height="16" src="https://img.icons8.com/stencil/16/pencil.png" alt="pencil" />
                 </button>
                 <button class="btn btn-outline-secondary" onclick="delMedico(<?= $medico['Medico']['id'] ?>)">
