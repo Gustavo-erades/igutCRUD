@@ -43,7 +43,7 @@
 		crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 	<script src="js/app_chamadas.js"></script>
-	<script src="js/app_exclusao.js"></script>
+	<script src="js/app_del.js"></script>
 	<script src="js/app_add.js"></script>
 	<script src="js/app_edit.js"></script>
 </body>

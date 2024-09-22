@@ -16,15 +16,9 @@
                 }
             }
         }
-        public function delete($id){
+        public function del($id=null){
             $this->layout='ajax';
-            if (!$this->request->is('post')) {
-                throw new BadNotAllowedException();
-            }
-            if ($this->Consulta->delete($id)) {
-                $this->Flash->success('Paciente deletado com sucesso!');
-                $this->redirect(array('action' => 'index'));
-            }
+           $this->Paciente->delete($id);
         }
 
         public function edit($id = null) {

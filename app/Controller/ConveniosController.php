@@ -12,16 +12,10 @@ class ConveniosController extends AppController
             }
         }
     }
-    public function delete($id)
+    public function del($id)
     {
-        $this->layout = 'ajax';
-        if (!$this->request->is('post')) {
-            throw new BadNotAllowedException();
-        }
-        if ($this->Convenio->delete($id)) {
-            $this->Flash->success('Convenio deletado com sucesso!');
-            $this->redirect(array('action' => 'index'));
-        }
+        $this->layout='ajax';
+        $this->Convenio->delete($id);
     }
     public function edit($id = null)
     {

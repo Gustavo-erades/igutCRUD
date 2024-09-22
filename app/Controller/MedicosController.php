@@ -24,15 +24,9 @@
                 $this->Medico->save($this->request->data);
             }
         }
-        public function delete($id){
-            $this->autoRender = false;
+        public function del($id=null){
             $this->layout='ajax';
-            if (!$this->request->is('post')) {
-                throw new BadNotAllowedException();
-            }
-            if ($this->Medico->delete($id)) {
-                $this->redirect(array('action' => 'index'));
-            }
+           $this->Medico->delete($id);
         }
         public $components=array('RequestHandler');
     }

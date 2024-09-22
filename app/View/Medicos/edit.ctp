@@ -1,4 +1,4 @@
-<h1 class="display-6 mt-3">Atualizar médico</h1>
+<h1 class="display-6 mt-3">Atualizar Médico</h1>
 <hr>
 <form class="form-group mt-2 mb-5" id="formMedico" method="post">
     <div class="form-floating mb-3">

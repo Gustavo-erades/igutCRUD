@@ -1,4 +1,4 @@
-<h1 class="display-6 mt-3">Cadastrar novo paciente</h1>
+<h1 class="display-6 mt-3">Atualizar Paciente</h1>
 <hr>
 <div class="form-group mt-2 mb-5">
   <div class="form-floating mb-3">

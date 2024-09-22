@@ -22,15 +22,9 @@ class AtendimentosController extends AppController
         }
     }
 
-    public function delete($id){
+    public function del($id){
         $this->layout='ajax';
-        if(!$this->request->is('post')){
-            throw new MethodNotAllowedException();
-        }
-        if($this->Atendimento->delete($id)){
-            $this->Flash->success('Atendimetno deletado!');
-            $this->redirect(array('action'=>'index'));
-        }
+        $this->Atendimento->delete($id);
     }
     public $components=array('RequestHandler');
 }
