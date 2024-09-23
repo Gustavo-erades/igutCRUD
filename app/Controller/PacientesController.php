@@ -1,5 +1,6 @@
 <?php 
     class PacientesController extends AppController{
+        
         public function index() {
             $this->layout="ajax";
             /*$this->set('pacientes',$this->Paciente->find('all'));*/

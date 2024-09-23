@@ -11,8 +11,6 @@ class AtendimentosController extends AppController
             'order' => array('Atendimento.nome' => 'asc')
         );
 
-        $this->layout = 'ajax';
-
         $atendimentos = $this->paginate('Atendimento');
         $total = $this->Atendimento->find('count');
         $this->set(compact('atendimentos', 'total'));

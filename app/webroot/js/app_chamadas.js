@@ -66,7 +66,7 @@ function getConvenios() {
 function getConsultas() {
     $.ajax({
         type: 'GET',
-        url: 'consultas/index',
+        url: 'consultas/index', 
         dataType: 'html',
         beforeSend: function () {
             //enquanto carrega a página
@@ -199,8 +199,23 @@ $('#getAtendimentos').on('click', getAtendimentos);
 $('#getConvenios').on('click', getConvenios);
 $('#getHome').on('click', getConsultas);
 /* acontece assim que a página é completamente carregada */
+function getLogin(){
+    $.ajax({
+        type: 'GET',
+        url: 'users/login/',
+        dataType: 'html',
+        beforeSend: function () {
+            //enquanto carrega a página
+        },
+        success: (data) => {
+            $('#mainContent').html(data);
+        },
+        error: () => {
+            alert('Erro ao carregar página de login');
+        }
+    })
+}
 $(document).ready(() => {
-
     $('#tableConsultas').DataTable({
         "processing": true,
         "serverSide": true,
@@ -217,6 +232,4 @@ $(document).ready(() => {
             { "data": "paciente_id" },
         ]
     });
-    
-    getConsultas();
 })

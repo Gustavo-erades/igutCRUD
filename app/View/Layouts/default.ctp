@@ -52,6 +52,7 @@
 	<script src="js/app_add.js"></script>
 	<script src="js/app_edit.js"></script>
 	<script src="js/app_paginacao.js"></script>
+	<script src="js/app_login.js"></script>
 </body>
 
 </html>

@@ -44,3 +44,4 @@
 </form>
 <!-- Modal -->
 <?= $this->element('modalAtendimentos') ?>
+<script src="http://localhost/igutCRUD/app/webroot/js/app_edit.js"></script>

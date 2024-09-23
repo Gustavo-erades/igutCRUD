@@ -1,5 +1,6 @@
 <?php 
     class MedicosController extends AppController{
+      
         public function index() {
             $this->layout="ajax";
             /*$this->set('medicos',$this->Medico->find('all'));*/
@@ -40,7 +41,8 @@
         }
         public function del($id=null){
             $this->layout='ajax';
-           $this->Medico->delete($id);
+            $this->Medico->delete($id);
+            exit();
         }
         public $components=array('RequestHandler');
     }

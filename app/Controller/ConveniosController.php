@@ -1,6 +1,7 @@
 <?php
 class ConveniosController extends AppController
 {
+
     public function index()
     {
         $this->layout = 'ajax';

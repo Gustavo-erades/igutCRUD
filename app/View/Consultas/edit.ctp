@@ -1,6 +1,6 @@
-<h1>Reagendar Consulta</h1>
+<h1 class="display-5">Reagendar Consulta</h1>
 <hr>
-<h3>Paciente <?= $consultas['Paciente']['nome']; ?> </h3>
+<h3 class="display-6">Paciente <?= $consultas['Paciente']['nome']; ?> </h3>
 <form class="form-group mt-2 mb-5">
     <div class="form-floating mb-3">
         <input required type="date" class="form-control" id="consultaDia" placeholder="" value="<?=$consultas['Consulta']['dia']?>">
