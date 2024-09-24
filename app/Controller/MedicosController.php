@@ -9,8 +9,6 @@
                 'limit' => 5,
                 'order' => array('Medico.nome' => 'asc')
             );
-    
-            $this->layout = 'ajax';
         
            $medicos=$this->paginate('Medico');
            $total=$this->Medico->find('count');

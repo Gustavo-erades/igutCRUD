@@ -1,34 +1,37 @@
 <?php
+
+App::uses('AppController', 'Controller');
+
     class UsersController extends AppController {
         public function login() {
             $this->layout = 'ajax';
-
-            if ($this->request->is('ajax')) {
+            if ($this->request->is('post')) {
                 if ($this->Auth->login()) {
-                    // Se o login for bem-sucedido, você pode retornar uma resposta
-                    $response = array('success' => true);
-                } else {
-                    $response = array('success' => false, 'message' => __('Invalid email or password'));
-                }
-                $this->response->type('application/json');
-                $this->response->body(json_encode($response));
-                return $this->response;
-            } else {
-                if ($this->request->is('post')) {
-                    if ($this->Auth->login()) {
-                        // Redirecionar após o login se não for AJAX
-                        return $this->redirect(array('controller' => 'consultas', 'action' => 'index'));
-                    } else {
-                        $this->Flash->error(__('Invalid email or password, try again'));
-                    }
+                    return $this->redirect($this->Auth->redirectUrl());
+                }else{
+                    print_r("erro não fez login");
                 }
             }
-        
         }
-        
+
+        public function add() {
+            if ($this->request->is('post')) {
+                $this->User->create();
+                if ($this->User->save($this->request->data)) {
+                    $this->Session->setFlash(__('Usuário salvo!'));
+                    return $this->redirect(array('action' => 'index'));
+                }else{
+                    print_r("O usuário não pôde ser salvo!");
+                }
+            }
+        }
+    
         public function logout() {
-            return $this->redirect($this->Auth->logout());
+            $this->Auth->logout();
+            /*$this->redirect('/login');*/
+            $this->redirect($this->Auth->logout());
         }
+
     }
     
 ?>

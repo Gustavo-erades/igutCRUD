@@ -202,7 +202,7 @@ $('#getHome').on('click', getConsultas);
 function getLogin(){
     $.ajax({
         type: 'GET',
-        url: 'users/login/',
+        url: 'users/index/',
         dataType: 'html',
         beforeSend: function () {
             //enquanto carrega a página

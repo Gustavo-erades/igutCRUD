@@ -11,13 +11,21 @@ function entrarLogin(){
         data: data, 
         dataType: 'json',
         success: (response) => {
-            if (response.success) {
+            console.log("sucesso, "+JSON.stringify(response, null, 2));
+
+           /* if (response.success) {
                 getConsultas(); 
-            } 
+            } */
         }, 
         error: (response) => {
-            console.log("error");
-            console.log(data);
+            console.log("erro, "+JSON.stringify(response, null, 2));
+           /*
+            if (response.error) {
+                getConsultas(); 
+            }*/
+            /*
+            alert("erro!");
+            console.log(data);*/
         }
     })
 }

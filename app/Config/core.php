@@ -227,10 +227,14 @@
  * the cake shell command: cake schema create Sessions
  */
 	Configure::write('Session', array(
-		'defaults' => 'php'
+		'defaults' => 'php',
+		/*'cookie' => 'clinica',
+		'timeout' => 10,
+		'cookieTimeout' => 0,
+		'checkAgent' => false*/
 	));
 
-/**
+/*
  * A random string used in security hashing methods.
  */
 	Configure::write('Security.salt', '');
