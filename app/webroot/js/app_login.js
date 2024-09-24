@@ -12,13 +12,12 @@ function entrarLogin(){
         dataType: 'json',
         success: (response) => {
             if (response.success) {
-                getConsultas(); // Atualiza o conteúdo
+                getConsultas(); 
             } 
         }, 
         error: (response) => {
             console.log("error");
             console.log(data);
-            getConsultas();
         }
     })
 }

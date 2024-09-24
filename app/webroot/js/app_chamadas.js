@@ -232,4 +232,5 @@ $(document).ready(() => {
             { "data": "paciente_id" },
         ]
     });
+    getConsultas();
 })

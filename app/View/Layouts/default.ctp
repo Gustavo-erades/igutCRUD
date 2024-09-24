@@ -32,6 +32,9 @@
 					<li class="nav-item">
 						<a class="nav-link" href="#" id="getConvenios">Convênios</a>
 					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#" id="logout">Sair</a>
+					</li>
 				</ul>
 			</div>
 		</div>
