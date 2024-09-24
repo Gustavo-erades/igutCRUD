@@ -3,6 +3,12 @@
 App::uses('AppController', 'Controller');
 
     class UsersController extends AppController {
+
+        public function beforeFilter() {
+            parent::beforeFilter();
+            $this->Auth->allow('add');
+        }
+
         public function login() {
             $this->layout = 'ajax';
             if ($this->request->is('post')) {
@@ -16,13 +22,9 @@ App::uses('AppController', 'Controller');
 
         public function add() {
             if ($this->request->is('post')) {
-                $this->User->create();
-                if ($this->User->save($this->request->data)) {
-                    $this->Session->setFlash(__('Usuário salvo!'));
-                    return $this->redirect(array('action' => 'index'));
-                }else{
-                    print_r("O usuário não pôde ser salvo!");
-                }
+                $this->User->save($this->request->data);
+            }else{
+                print_r("O usuário não pôde ser salvo!");
             }
         }
     
