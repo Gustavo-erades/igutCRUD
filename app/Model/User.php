@@ -1,5 +1,5 @@
 <?php
-App::uses('AppModel/Model');
+App::uses('AppModel/Model','Model');
 App::uses('BlowfishPasswordHasher', 'Controller/Component/Auth');
 class User extends AppModel {
     public $validate = array(
@@ -13,7 +13,7 @@ class User extends AppModel {
                 'rule' => 'notBlank',
             )
         )
-            );
+    );
 
     public function beforeSave($options = array()) {
             if (isset($this->data[$this->alias]['password'])) {

@@ -47,12 +47,12 @@ class AppController extends Controller {
                 'Form' => array(
                     'passwordHasher' => 'Blowfish'
                 )
-            )
+                ),
         )
     );
 
     public function beforeFilter() {
-        $this->Auth->allow('index', 'view');
+        /*$this->Auth->allow('index', 'view');*/
     }
     
 }

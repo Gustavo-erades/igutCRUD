@@ -33,7 +33,7 @@
 						<a class="nav-link" href="#" id="getConvenios">Convênios</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#" id="logout">Sair</a>
+						<a class="nav-link" href="#" id="logout" onclick="sair()">Sair</a>
 					</li>
 				</ul>
 			</div>
