@@ -40,7 +40,7 @@
         public function del($id=null){
             $this->layout='ajax';
             $this->Medico->delete($id);
-            exit();
+            // exit();
         }
         public $components=array('RequestHandler');
     }
