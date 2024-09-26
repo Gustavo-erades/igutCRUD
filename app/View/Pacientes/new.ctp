@@ -1,3 +1,4 @@
+<div id="alert"></div>
 <h1 class="display-6 mt-3">Cadastrar novo paciente</h1>
 <hr>
 <div class="form-group mt-2 mb-5">

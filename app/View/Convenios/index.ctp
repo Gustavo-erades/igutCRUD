@@ -1,3 +1,4 @@
+<div id="alert"></div>
 <h1 class="display-6 mt-3">Convenios já cadastrados:</h1>
 <hr>
 <table class="table table-hover">

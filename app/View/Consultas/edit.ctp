@@ -1,3 +1,4 @@
+<div id="alert"></div>
 <h1 class="display-5">Reagendar Consulta</h1>
 <hr>
 <h3 class="display-6">Paciente <?= $consultas['Paciente']['nome']; ?> </h3>

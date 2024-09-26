@@ -9,24 +9,27 @@
             <h4 class="text-info">Nascimento:</h4>
             <span class="fs-4">
                 <?php 
-        echo date('d/m/Y',strtotime($pacientes['Paciente']['dt_nasc']));
-    ?>
+                    echo date('d/m/Y',strtotime($pacientes['Paciente']['dt_nasc']));
+                ?>
             </span>
         </li>
         <li class="list-group-item">
             <h4 class="text-info">CPF:</h4>
             <span class="fs-4">
                 <?php 
-        echo $pacientes['Paciente']['cpf']
-    ?>
+                    echo $pacientes['Paciente']['cpf']
+                ?>
             </span>
         </li>
         <li class="list-group-item">
             <h4 class="text-info">Contato:</h4>
             <span class="fs-4">
                 <?php 
-        echo $pacientes['Paciente']['telefone']
-    ?>
+                    $dado=$pacientes['Paciente']['telefone'];
+                    $dadoFormatado=sprintf('(%s) %s-%s', substr($dado, offset: 0, length: 2), substr($dado, 2, 5), substr($dado, 7));
+                    echo $dadoFormatado;
+                ?>
             </span>
         </li>
+    </ul>
 </div>

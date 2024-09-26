@@ -11,11 +11,12 @@
 
 <body>
     <div class="container-fluid bg-info">
+        <div id="alert"></div>
         <div class="d-flex justify-content-center align-items-center vh-100">
             <div>
                 <div style="width:30em;padding:20px" class="card shadow-lg">
                     <div>
-                        <h1 class="display-6 mb-3">Cadastro</h1>
+                        <h1 class="display-6 mb-3">Cadastro de Usuário</h1>
                     </div>
                     <div>
                         <form>
@@ -33,16 +34,35 @@
                                 cadastrar
                             </button>
                         </form>
+                        <div class="mt-3">
+                            <p>Já possui cadastro?
+                                <a href="http://localhost/igutCRUD/">Faça seu login</a>
+                            </p>
+                        </div>
                     </div>
                 </div>
-                <span class="alert alert-danger lert-dismissible fade show" role="alert" style="display:none;position:fixed;z-index:1000;" id="alert">
-                    Por favor, preenha todos os campos
-                </span>
             </div>
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
+        var alerta = document.querySelector("#alert");
+
+        function contemArroba(str) {
+            return str.includes('@');
+        }
+        function novoAlerta(texto) {
+            alerta.innerHTML = '';
+            const novoAlerta = document.createElement('div');
+            novoAlerta.className = 'alert alert-danger d-grid col-6 offset-3';
+            novoAlerta.role = 'alert';
+            novoAlerta.style.position = 'absolute';
+            novoAlerta.style.zIndex = '1000';
+            novoAlerta.textContent = texto;
+            alerta.appendChild(novoAlerta);
+            showAlert();
+        }
+
         function showAlert() {
             $('#alert').fadeIn().delay(3000).fadeOut();
         }
@@ -51,32 +71,43 @@
             var email = $('#email').val();
             var senha = $('#senha').val();
             if (email != '' && senha != '') {
-                data = {
-                    username: email,
-                    password: senha
-                }
-                $.ajax({
-                    type: 'POST',
-                    url: 'http://localhost/igutCRUD/users/add/',
-                    contentType: 'application/json',
-                    data: JSON.stringify(data),
-                    success: (response) => {
-                        window.location.href = "/igutCRUD/"
-                    },
-                    error: (response) => {
-                        console.log("Erro ao cadastrar!")
+                if (senha.length >= 8 && contemArroba(email)) {
+                    data = {
+                        username: email,
+                        password: senha
                     }
-                })
+                    $.ajax({
+                        type: 'POST',
+                        url: 'http://localhost/igutCRUD/users/add/',
+                        contentType: 'application/json',
+                        data: JSON.stringify(data),
+                        success: (response) => {
+                            window.location.href = "/igutCRUD/"
+                        },
+                        error: (response) => {
+                            console.log("Erro ao cadastrar!")
+                        }
+                    })
+                } else {
+                    var emailCampo = document.querySelector("#email");
+                    emailCampo.style.borderColor = "red";
+                    var senhaCampo = document.querySelector("#senha");
+                    senhaCampo.style.borderColor = "red";
+                    if(senha.length<8){
+                        novoAlerta("A senha deve conter no mínimo 8 caracteres");
+                    }
+                    if(!contemArroba(email)){
+
+                        novoAlerta("O Email deve ser um email válido! exemplo@email.com")
+                    }
+                }
             } else {
                 var emailCampo = document.querySelector("#email");
                 emailCampo.style.borderColor = "red";
                 var senhaCampo = document.querySelector("#senha");
                 senhaCampo.style.borderColor = "red";
-                var alerta = document.querySelector("#alert");
-                alerta.style.display = "block";
-                showAlert();
+                novoAlerta("Por favor, preencha todos os campos.");
             }
-
         }
     </script>
 </body>

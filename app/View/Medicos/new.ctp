@@ -1,3 +1,4 @@
+<div id="alert"></div>
 <h1 class="display-6 mt-3">Novo médico</h1>
 <hr>
 <form class="form-group mt-2 mb-5" id="formMedico" method="post">

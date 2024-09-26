@@ -1,3 +1,4 @@
+<div id="alert"></div>
 <h1 class="display-6 mt-3">Atualizar Paciente</h1>
 <hr>
 <div class="form-group mt-2 mb-5">
@@ -17,6 +18,7 @@
   </div>
 
   <div class="form-floating mb-3">
+ 
     <input type="date" class="form-control" id="pacienteNascimento" placeholder="" value="<?=$pacientes['Paciente']['dt_nasc']?>">
     <label for="pacienteNascimento">Nascimento</label>
   </div>

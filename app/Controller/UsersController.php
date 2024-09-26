@@ -19,6 +19,8 @@ class UsersController extends AppController
         if ($this->request->is('post')) {
             if ($this->Auth->login()) {
                 return $this->redirect($this->Auth->redirectUrl('/'));
+            }else{
+                return $this->redirect($this->Auth->redirectUrl('/users/login?erro=error'));
             }
         }
     }
@@ -39,21 +41,17 @@ class UsersController extends AppController
     }
 
     public function logout() {
-        /*$this->autoRender = false;
-        $this->Auth->logout();
-        $this->set('response', ['success' => true, 'message' => 'Logout realizado com sucesso']);
-        $this->set('_serialize', ['response']);*/
         return $this->redirect($this->Auth->logout());
     }
 
-    public function isAuthorized($user) {
-        // Permitir acesso a todas as ações para usuários autenticados
+    public function index(){
+        return $this->redirect($this->Auth->redirectUrl('/'));
+    }
+    /*public function isAuthorized($user) {
         if (isset($user)) {
             return true;
         }
-    
-        // Caso contrário, negue o acesso
         return false;
-    }
+    }*/
     
 }

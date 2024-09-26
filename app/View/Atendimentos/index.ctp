@@ -1,3 +1,4 @@
+<div id="alert"></div>
 <h1 class="display-6 mt-3">Atendimentos Cadastrados:</h1>
 <hr>
 <table class="table table-hover">

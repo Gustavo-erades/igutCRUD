@@ -31,7 +31,6 @@
  */
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 
-
 	Router::connect('/users/login', array('controller' => 'users', 'action' => 'login'));
 	/*Router::connect('/users', array('controller' => 'users', 'action' => 'login'));*/
 
