@@ -17,7 +17,10 @@
             <h4 class="text-info">CPF:</h4>
             <span class="fs-4">
                 <?php 
-                    echo $pacientes['Paciente']['cpf']
+                    $dadoCpf=$pacientes['Paciente']['cpf'];
+                    $dadoFormatadoCpf=sprintf('%s.%s.%s-%s', substr($dadoCpf, offset: 0, length: 3), substr($dadoCpf, 3, 3), substr($dadoCpf,5,3),substr($dadoCpf,8,2));
+                    // echo $pacientes['Paciente']['cpf']
+                    echo $dadoFormatadoCpf;
                 ?>
             </span>
         </li>

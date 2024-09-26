@@ -17,8 +17,20 @@
                     <?= $paciente['Paciente']['nome'] ?>
                 </a>
             </td>
-            <td><?php echo $paciente['Paciente']['cpf']; ?></td>
-            <td><?php echo $paciente['Paciente']['telefone']; ?></td>
+            <td>
+                <?php 
+                    $dadoCpf=$paciente['Paciente']['cpf'];
+                    $dadoFormatadoCpf=sprintf('%s.%s.%s-%s', substr($dadoCpf, offset: 0, length: 3), substr($dadoCpf, 3, 3), substr($dadoCpf,5,3),substr($dadoCpf,8,2));
+                    echo $dadoFormatadoCpf; 
+                ?>
+            </td>
+            <td>
+                <?php 
+                    $dado=$paciente['Paciente']['telefone'];
+                    $dadoFormatado=sprintf('(%s) %s-%s', substr($dado, offset: 0, length: 2), substr($dado, 2, 5), substr($dado, 7));
+                    echo $dadoFormatado;
+                ?>
+            </td>
             <td><?php echo date('d/m/Y', strtotime($paciente['Paciente']['dt_nasc'])); ?></td>
             <td>
                 <button class="btn btn-outline-secondary" type="button" onclick="getEditPaciente(<?= $paciente['Paciente']['id'] ?>)">
