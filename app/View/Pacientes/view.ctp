@@ -19,7 +19,6 @@
                 <?php 
                     $dadoCpf=$pacientes['Paciente']['cpf'];
                     $dadoFormatadoCpf=sprintf('%s.%s.%s-%s', substr($dadoCpf, offset: 0, length: 3), substr($dadoCpf, 3, 3), substr($dadoCpf,5,3),substr($dadoCpf,8,2));
-                    // echo $pacientes['Paciente']['cpf']
                     echo $dadoFormatadoCpf;
                 ?>
             </span>
