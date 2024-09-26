@@ -64,7 +64,6 @@
             alerta.appendChild(novoAlerta);
             showAlert();
         }
-
         function showAlert() {
             $('#alert').fadeIn().delay(3000).fadeOut();
         }
@@ -82,7 +81,7 @@
                     if (!form.checkValidity()) {
                         event.preventDefault();
                         event.stopPropagation();
-                        novoAlerta("Usuário ou senha incorretos! Tente novamente.");
+                        novoAlerta("Preencha os campos para efetuar login!");
                     }
                     form.classList.add('was-validated')
                 }, false)
